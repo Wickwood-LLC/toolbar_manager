@@ -4,4 +4,4 @@ core:  "8.x"
 type: module
 dependencies:
   - drupal:toolbar
-configure: toolbar_menu.settings
+configure: toolbar_manager_settings
