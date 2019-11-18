@@ -1,0 +1,8 @@
+toolbar_manager_settings:
+  path: 'admin/config/user-interface/toolbar-manager'
+  defaults:
+    _form: '\Drupal\toolbar_manager\Form\ToolbarManagerForm'
+    _title: 'Toolbar Manager Settings'
+  requirements:
+    _permission: 'administer site configuration'
+

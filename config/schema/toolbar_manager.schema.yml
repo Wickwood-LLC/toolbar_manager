@@ -1,0 +1,13 @@
+toolbar_manager.toolbar_items.*:
+  type: config_entity
+  label: 'Toolbar Item Settings'
+  mapping:
+    id:
+      type: string
+      label: 'Toolbar Item ID'
+    enabled:
+      type: boolean
+      label: 'Enabled'
+    weight:
+      type: string
+      label: 'HTML title field'

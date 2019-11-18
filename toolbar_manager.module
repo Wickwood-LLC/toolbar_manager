@@ -1,0 +1,21 @@
+<?php
+
+use Drupal\toolbar_manager\Entity\ToolbarItemSettings;
+
+/**
+ * Implements hook_toolbar_alter()
+ */
+function toolbar_manager_toolbar_alter(&$items) {
+  $toolbar_items_settings = ToolbarItemSettings::loadMultipleSorted();
+  foreach ($items as $id => $item) {
+    if (isset($toolbar_items_settings[$id])) {
+      if (!$toolbar_items_settings[$id]->enabled) {
+        //unset($items[$id]);
+        $items[$id]['tab']['#access'] = FALSE;
+      }
+      else {
+        $items[$id]['#weight'] = (int) $toolbar_items_settings[$id]->weight;
+      }
+    }
+  }
+}
