@@ -47,9 +47,10 @@ class ToolbarManagerForm extends ConfigFormBase {
       $enabled = isset($toolbar_items_settings[$key]) ? $toolbar_items_settings[$key]->enabled : TRUE;
       $items[] = [
         'id' => $key,
-        'tab' => strip_tags($renderer->render($toolbar_item['tab'])),
+        'tab' => strip_tags($renderer->render($toolbar_item['#original_tab'])),
         'enabled' => $enabled,
         'weight' => $toolbar_item['#weight'],
+        'custom_label' => $toolbar_items_settings[$key]->custom_label,
       ];
     }
 
@@ -57,8 +58,10 @@ class ToolbarManagerForm extends ConfigFormBase {
     $form['items'] = [
       '#type' => 'table',
       '#caption' => $this->t('Please clear the cache after making changes.'),
+      '#footer' => $this->t('Please clear the cache after making changes.'),
       '#header' => [
         $this->t('Tab'),
+        $this->t('Custom label'),
         $this->t('ID'),
         $this->t('Enabled'),
         $this->t('Weight'),
@@ -84,6 +87,17 @@ class ToolbarManagerForm extends ConfigFormBase {
       $form['items'][$key]['tab'] = [
         '#plain_text' => $value['tab'],
       ];
+
+
+      $form['items'][$key]['custom_label'] = [];
+      if (isset($toolbar_items[$value['id']]['tab']['#type']) && in_array($toolbar_items[$value['id']]['tab']['#type'], ['link', 'html_tag'])) {
+        $form['items'][$key]['custom_label'] = [
+          '#type' => 'textfield',
+          '#title' => $this->t('Custom label'),
+          '#title_display' => 'invisible',
+          '#default_value' => $value['custom_label'],
+        ];
+      }
 
       // ID col.
       $form['items'][$key]['id'] = [
@@ -134,6 +148,7 @@ class ToolbarManagerForm extends ConfigFormBase {
       $item_settings = ToolbarItemSettings::loadOrCreate($item['id']);
       $item_settings->enabled = (boolean) $item['enabled'];
       $item_settings->weight = $item['weight'];
+      $item_settings->custom_label = trim($item['custom_label']);
       $item_settings->save();
     }
 

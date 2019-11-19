@@ -11,3 +11,6 @@ toolbar_manager.toolbar_items.*:
     weight:
       type: string
       label: 'HTML title field'
+    custom_label:
+      type: string
+      label: 'Custom label'

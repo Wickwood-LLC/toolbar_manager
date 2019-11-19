@@ -19,7 +19,8 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *   config_export = {
  *     "id",
  *     "enabled",
- *     "weight"
+ *     "weight",
+ *     "custom_label"
  *   },
  *   links = {}
  * )
@@ -42,6 +43,11 @@ class ToolbarItemSettings extends ConfigEntityBase {
    * Field storing whether item wight.
    */
   public $weight;
+
+  /**
+   * Field storing custom label.
+   */
+  public $custom_label;
 
   public static function loadOrCreate($id) {
     $entity =  \Drupal::entityTypeManager()

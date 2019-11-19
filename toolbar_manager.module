@@ -16,6 +16,17 @@ function toolbar_manager_toolbar_alter(&$items) {
       else {
         $items[$id]['#weight'] = (int) $toolbar_items_settings[$id]->weight;
       }
+
+      $items[$id]['#original_tab'] = $items[$id]['tab'];
+
+      if (!empty($toolbar_items_settings[$id]->custom_label) &&  isset($items[$id]['tab']['#type'])) {
+        if ($items[$id]['tab']['#type'] == 'link' && isset($items[$id]['tab']['#title'])) {
+          $items[$id]['tab']['#title'] = $toolbar_items_settings[$id]->custom_label;
+        }
+        else if ($items[$id]['tab']['#type'] == 'html_tag' && isset($items[$id]['tab']['#value'])) {
+          $items[$id]['tab']['#value'] = $toolbar_items_settings[$id]->custom_label;
+        }
+      }
     }
   }
 }
