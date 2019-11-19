@@ -56,7 +56,7 @@ class ToolbarManagerForm extends ConfigFormBase {
     // Build table.
     $form['items'] = [
       '#type' => 'table',
-      '#caption' => $this->t('Items'),
+      '#caption' => $this->t('Please clear the cache after making changes.'),
       '#header' => [
         $this->t('Tab'),
         $this->t('ID'),
