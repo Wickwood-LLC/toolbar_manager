@@ -62,9 +62,9 @@ class ToolbarManagerForm extends ConfigFormBase {
       '#footer' => $this->t('Please clear the cache after making changes.'),
       '#header' => [
         $this->t('Tab'),
+        $this->t('Default label'),
         $this->t('Custom label'),
         $this->t('CSS classes'),
-        $this->t('ID'),
         $this->t('Enabled'),
         $this->t('Weight'),
       ],
@@ -85,11 +85,17 @@ class ToolbarManagerForm extends ConfigFormBase {
       $form['items'][$key]['#attributes']['class'][] = 'draggable';
       $form['items'][$key]['#weight'] = $value['weight'];
 
+      // ID col.
+      $form['items'][$key]['id'] = [
+        '#type' => 'item',
+        '#value' => $value['id'],
+        '#plain_text' => $value['id'],
+      ];
+
       // Label col.
       $form['items'][$key]['tab'] = [
         '#plain_text' => $value['tab'],
       ];
-
 
       $form['items'][$key]['custom_label'] = [];
       if (isset($toolbar_items[$value['id']]['tab']['#type']) && in_array($toolbar_items[$value['id']]['tab']['#type'], ['link', 'html_tag'])) {
@@ -107,13 +113,6 @@ class ToolbarManagerForm extends ConfigFormBase {
         '#title' => $this->t('CSS classes'),
         '#title_display' => 'invisible',
         '#default_value' => $value['css_classes'],
-      ];
-
-      // ID col.
-      $form['items'][$key]['id'] = [
-        '#type' => 'item',
-        '#value' => $value['id'],
-        '#plain_text' => $value['id'],
       ];
 
       $form['items'][$key]['enabled'] = [
