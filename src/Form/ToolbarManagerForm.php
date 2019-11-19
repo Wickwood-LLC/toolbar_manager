@@ -51,6 +51,7 @@ class ToolbarManagerForm extends ConfigFormBase {
         'enabled' => $enabled,
         'weight' => $toolbar_item['#weight'],
         'custom_label' => $toolbar_items_settings[$key]->custom_label,
+        'css_classes' => $toolbar_items_settings[$key]->css_classes,
       ];
     }
 
@@ -62,6 +63,7 @@ class ToolbarManagerForm extends ConfigFormBase {
       '#header' => [
         $this->t('Tab'),
         $this->t('Custom label'),
+        $this->t('CSS classes'),
         $this->t('ID'),
         $this->t('Enabled'),
         $this->t('Weight'),
@@ -96,8 +98,16 @@ class ToolbarManagerForm extends ConfigFormBase {
           '#title' => $this->t('Custom label'),
           '#title_display' => 'invisible',
           '#default_value' => $value['custom_label'],
+          '#attributes' => ['size' => 30],
         ];
       }
+
+      $form['items'][$key]['css_classes'] = [
+        '#type' => 'textfield',
+        '#title' => $this->t('CSS classes'),
+        '#title_display' => 'invisible',
+        '#default_value' => $value['css_classes'],
+      ];
 
       // ID col.
       $form['items'][$key]['id'] = [
@@ -149,6 +159,7 @@ class ToolbarManagerForm extends ConfigFormBase {
       $item_settings->enabled = (boolean) $item['enabled'];
       $item_settings->weight = $item['weight'];
       $item_settings->custom_label = trim($item['custom_label']);
+      $item_settings->css_classes = trim($item['css_classes']);
       $item_settings->save();
     }
 

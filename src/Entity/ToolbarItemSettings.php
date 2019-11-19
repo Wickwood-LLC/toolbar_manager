@@ -20,7 +20,8 @@ use Drupal\Core\Config\Entity\ConfigEntityBase;
  *     "id",
  *     "enabled",
  *     "weight",
- *     "custom_label"
+ *     "custom_label",
+ *     "css_classes"
  *   },
  *   links = {}
  * )
@@ -48,6 +49,11 @@ class ToolbarItemSettings extends ConfigEntityBase {
    * Field storing custom label.
    */
   public $custom_label;
+
+  /**
+   * Field storing custom CSS classes
+   */
+  public $css_classes;
 
   public static function loadOrCreate($id) {
     $entity =  \Drupal::entityTypeManager()

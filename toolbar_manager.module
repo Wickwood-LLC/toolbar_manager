@@ -27,6 +27,9 @@ function toolbar_manager_toolbar_alter(&$items) {
           $items[$id]['tab']['#value'] = $toolbar_items_settings[$id]->custom_label;
         }
       }
+      if (!empty($toolbar_items_settings[$id]->css_classes) && in_array($items[$id]['tab']['#type'], ['link', 'html_tag'])) {
+        $items[$id]['tab']['#attributes']['class'] = explode(' ', $toolbar_items_settings[$id]->css_classes);
+      }
     }
   }
 }
