@@ -2,7 +2,7 @@ toolbar_manager_settings:
   path: '/admin/config/user-interface/toolbar-manager'
   defaults:
     _form: '\Drupal\toolbar_manager\Form\ToolbarManagerForm'
-    _title: 'Toolbar Manager Settings'
+    _title: 'Toolbar Manager'
   requirements:
     _permission: 'administer site configuration'
 
@@ -10,7 +10,7 @@ entity.toolbar_link_item.collection:
   path: '/admin/config/user-interface/toolbar-manager/link-item'
   defaults:
     _entity_list: 'toolbar_link_item'
-    _title: 'Toolbar link items'
+    _title: 'Toolbar Manager'
   requirements:
     _permission: 'administer site configuration'
 

@@ -1,0 +1,8 @@
+toolbar_manager_settings:
+  route_name: toolbar_manager_settings
+  base_route: toolbar_manager_settings
+  title: 'Settings'
+entity.toolbar_link_item.collection:
+  route_name: entity.toolbar_link_item.collection
+  base_route: toolbar_manager_settings
+  title: 'Toolbar Link Items'
