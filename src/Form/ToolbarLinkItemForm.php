@@ -9,7 +9,6 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\link\LinkItemInterface;
-use Drupal\Core\Entity\Element\EntityAutocomplete;
 
 /**
  * Form handler for the Example add and edit forms.

@@ -3,6 +3,7 @@
 namespace Drupal\toolbar_manager\Entity;
 
 use Drupal\Core\Config\Entity\ConfigEntityBase;
+use Drupal\Core\Entity\Element\EntityAutocomplete;
 
 /**
  * Defines the Content Type settings entity.
