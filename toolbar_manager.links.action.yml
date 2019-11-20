@@ -1,0 +1,5 @@
+entity.toolbar_link_item.add_form:
+  route_name: 'entity.toolbar_link_item.add_form'
+  title: 'Add toolbar link item'
+  appears_on:
+    - entity.toolbar_link_item.collection

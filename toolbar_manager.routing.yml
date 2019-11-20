@@ -1,8 +1,39 @@
 toolbar_manager_settings:
-  path: 'admin/config/user-interface/toolbar-manager'
+  path: '/admin/config/user-interface/toolbar-manager'
   defaults:
     _form: '\Drupal\toolbar_manager\Form\ToolbarManagerForm'
     _title: 'Toolbar Manager Settings'
   requirements:
     _permission: 'administer site configuration'
 
+entity.toolbar_link_item.collection:
+  path: '/admin/config/user-interface/toolbar-manager/link-item'
+  defaults:
+    _entity_list: 'toolbar_link_item'
+    _title: 'Toolbar link items'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.toolbar_link_item.add_form:
+  path: '/admin/config/user-interface/toolbar-manager/link-item/add'
+  defaults:
+    _entity_form: 'toolbar_link_item.add'
+    _title: 'Add toolbar link item'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.toolbar_link_item.edit_form:
+  path: '/admin/config/user-interface/toolbar-manager/link-item/{toolbar_link_item}'
+  defaults:
+    _entity_form: 'toolbar_link_item.edit'
+    _title: 'Edit toolbar link item'
+  requirements:
+    _permission: 'administer site configuration'
+
+entity.toolbar_link_item.delete_form:
+  path: '/admin/config/user-interface/toolbar-manager/link-item/{toolbar_link_item}/delete'
+  defaults:
+    _entity_form: 'toolbar_link_item.delete'
+    _title: 'Delete toolbar link item'
+  requirements:
+    _permission: 'administer site configuration'

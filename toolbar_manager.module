@@ -17,7 +17,7 @@ function toolbar_manager_toolbar_alter(&$items) {
         $items[$id]['#weight'] = (int) $toolbar_items_settings[$id]->weight;
       }
 
-      $items[$id]['#original_tab'] = $items[$id]['tab'];
+      $items[$id]['#original_tab'] = isset($items[$id]['tab']) ? $items[$id]['tab'] : NULL;
 
       if (!empty($toolbar_items_settings[$id]->custom_label) &&  isset($items[$id]['tab']['#type'])) {
         if ($items[$id]['tab']['#type'] == 'link' && isset($items[$id]['tab']['#title'])) {

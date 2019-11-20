@@ -1,4 +1,4 @@
-toolbar_manager.toolbar_items.*:
+toolbar_manager.toolbar_item_settings.*:
   type: config_entity
   label: 'Toolbar Item Settings'
   mapping:
@@ -9,8 +9,33 @@ toolbar_manager.toolbar_items.*:
       type: boolean
       label: 'Enabled'
     weight:
-      type: string
-      label: 'HTML title field'
+      type: integer
+      label: 'Weight'
     custom_label:
       type: string
       label: 'Custom label'
+
+toolbar_manager.toolbar_link_item.*:
+  type: config_entity
+  label: 'Toolbar Single Link'
+  mapping:
+    id:
+      type: string
+      label: 'Toolbar Link Item ID'
+    text:
+      type: label
+      label: 'Link text'
+    url:
+      type: string
+      label: 'Link'
+    enabled:
+      type: boolean
+      label: 'Enabled'
+    weight:
+      type: integer
+      label: 'Weight'
+    attributes:
+      type: sequence
+      label: 'Link attributes'
+      sequence:
+        type: string
