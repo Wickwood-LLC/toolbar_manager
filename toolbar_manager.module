@@ -1,45 +1,7 @@
 <?php
 
 use Drupal\toolbar_manager\Entity\ToolbarItemSettings;
-use Drupal\toolbar_manager\Entity\ToolbarLinkItem;
 use Drupal\Core\Url;
-
-/**
- * Implements hook_toolbar()
- */
-function toolbar_manager_toolbar() {
-  $toolbar_link_items = ToolbarLinkItem::loadMultipleSorted();
-  $items = [];
-
-  foreach ($toolbar_link_items as $toolbar_link_item) {
-    $items[$toolbar_link_item->id] = [
-      '#cache' => [
-        'contexts' => [
-          'user.permissions',
-        ],
-      ],
-      '#type' => 'toolbar_item',
-      'tab' => [
-        '#type' => 'link',
-        '#title' => $toolbar_link_item->text,
-        '#url' => Url::fromUri(ToolbarLinkItem::getUserEnteredStringAsUri($toolbar_link_item->url)),
-        '#attributes' => [
-          'class' => [],
-        ],
-        '#cache' => [],
-      ],
-      '#wrapper_attributes' => [
-        'class' => [],
-      ],
-      '#attached' => [
-        'library' => [],
-      ],
-      '#weight' => $toolbar_link_item->weight,
-    ];
-  }
-
-  return $items;
-}
 
 /**
  * Implements hook_toolbar_alter()

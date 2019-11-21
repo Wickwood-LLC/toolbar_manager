@@ -14,28 +14,3 @@ toolbar_manager.toolbar_item_settings.*:
     custom_label:
       type: string
       label: 'Custom label'
-
-toolbar_manager.toolbar_link_item.*:
-  type: config_entity
-  label: 'Toolbar Single Link'
-  mapping:
-    id:
-      type: string
-      label: 'Toolbar Link Item ID'
-    text:
-      type: label
-      label: 'Link text'
-    url:
-      type: string
-      label: 'Link'
-    enabled:
-      type: boolean
-      label: 'Enabled'
-    weight:
-      type: integer
-      label: 'Weight'
-    attributes:
-      type: sequence
-      label: 'Link attributes'
-      sequence:
-        type: string

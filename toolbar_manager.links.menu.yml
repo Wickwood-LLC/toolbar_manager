@@ -3,9 +3,3 @@ toolbar_manager_settings:
   title: 'Toolbar Manager'
   route_name: toolbar_manager_settings
   parent: system.admin_config_ui
-
-entity.toolbar_link_item.collection:
-  title: 'Toolbar Link Items'
-  parent: toolbar_manager_settings
-  description: 'Configure toolbar link items'
-  route_name: entity.toolbar_link_item.collection
